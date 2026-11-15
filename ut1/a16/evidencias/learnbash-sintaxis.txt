@@ -1,0 +1,3 @@
+$ bash -n LearnBash.sh
+
+[código de salida: 0]

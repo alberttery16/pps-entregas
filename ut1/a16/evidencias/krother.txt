@@ -1,0 +1,97 @@
+Resolución ejecutada en una copia temporal; fuente krother/bash_tutorial, commit 9b07e53aae429046d938ba5addea956b40894d95.
+
+$ ls -a exercise_1/directoryB/solution_1.1
+.
+..
+.the_second_character_is_P
+the_first_character_is_A
+
+$ bash exercise_1/directoryB/program.sh
+The third character is 'T'.
+
+$ wc -c exercise_1/directoryC/text_file.txt
+69 exercise_1/directoryC/text_file.txt
+
+$ cat exercise_2/solution_2.1.txt
+
+The fifth character of the solution is 'N'.
+
+
+Did you know:
+    The solution is usually well-dressed.
+
+
+$ mkdir exercise_3/solution
+
+$ cp exercise_3/part1/* exercise_3/part2/* exercise_3/solution/
+
+$ ls -l exercise_3/solution/
+total 0
+-rw-r--r-- 1 agent agent 0 Nov 14 14:14 UIMDELGKBCYF.txt
+-rw-r--r-- 1 agent agent 0 Nov 14 14:14 ___+______+_.txt
+
+$ rm exercise_3/data/*Y*
+
+$ ls exercise_3/data
+X_X_X_T_X_X_X
+X_X_X_X_X_E_X
+
+$ diff exercise_4/ai.txt exercise_4/artificial_intelligence.txt
+6c6
+< that they're too stupid
+---
+> that they're too tupid
+
+$ LC_ALL=en_US.utf8 sort exercise_4/elephant.txt | tail -1
+With four parameters
+
+$ grep fire exercise_4/datascience.txt
+a fire station
+
+$ unzip exercise_5/wrapped.zip -d exercise_5
+Archive:  exercise_5/wrapped.zip
+  inflating: exercise_5/wrapped.tar  
+
+$ tar -xf exercise_5/wrapped.tar -C exercise_5
+
+$ gunzip exercise_5/solution/solution.txt.gz
+
+$ cat exercise_5/solution/solution.txt
+
+Congratulations. You unwrapped everything.
+
+The 14th character is: 'T'
+
+The 15th character is: 'A'
+
+
+$ chmod u+x exercise_6/permissions.sh
+
+$ ./exercise_6/permissions.sh
+character 16 is:
+G
+character 17 is:
+O
+
+$ df --version
+df (GNU coreutils) 9.7
+Packaged by Debian (9.7-3)
+Copyright (C) 2025 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjörn Granlund, David MacKenzie, and Paul Eggert.
+
+$ export GIVEME=SOLUTION; echo "$GIVEME" | wc -c
+9
+
+$ top -b -n 1 | head -8
+top - 14:14:12 up 23 min,  0 users,  load average: 0.22, 0.13, 0.05
+Tasks:   6 total,   1 running,   5 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   9967.3 total,   8924.4 free,    743.4 used,    635.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   9223.9 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 agent     20   0  321060  15560   9256 S   0.0   0.2   0:00.02 codex

@@ -1,0 +1,86 @@
+$ bash -x tramo1.sh
+USER=
++ echo 'Hello world!'
+Hello world!
++ echo 'This is the first command'
+This is the first command
++ echo 'This is the second command'
+This is the second command
++ variable='Some string'
++ variable = 'Some string'
+tramo1.sh: line 19: variable: command not found
++ variable=
++ 'Some string'
+tramo1.sh: line 24: Some string: command not found
++ echo 'Some string'
+Some string
++ echo '$variable'
+$variable
++ echo 'Some string'
+Some string
++ echo 'A string'
+A string
++ length=7
++ echo 'Some st'
+Some st
++ echo tring
+tring
++ echo 11
+11
++ other_variable=variable
++ echo Some string
+Some string
++ echo DefaultValueIfFooIsMissingOrEmpty
+DefaultValueIfFooIsMissingOrEmpty
++ array=(one two three four five six)
++ echo one
+one
++ echo one two three four five six
+one two three four five six
++ echo 6
+6
++ echo 5
+5
++ echo four five
+four five
++ for item in "${array[@]}"
++ echo one
+one
++ for item in "${array[@]}"
++ echo two
+two
++ for item in "${array[@]}"
++ echo three
+three
++ for item in "${array[@]}"
++ echo four
+four
++ for item in "${array[@]}"
++ echo five
+five
++ for item in "${array[@]}"
++ echo six
+six
++ echo 'Last program'\''s return value: 0'
+Last program's return value: 0
++ echo 'Script'\''s PID: 1786'
+Script's PID: 1786
++ echo 'Number of arguments passed to script: 0'
+Number of arguments passed to script: 0
++ echo 'All arguments passed to script: '
+All arguments passed to script: 
++ echo 'Script'\''s arguments separated into different variables:  ...'
+Script's arguments separated into different variables:  ...
++ echo 1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
++ echo a b c d e f g h i j k l m n o p q r s t u v w x y z
+a b c d e f g h i j k l m n o p q r s t u v w x y z
++ from=1
++ to=10
++ echo '{1..10}'
+{1..10}
+++ pwd
++ echo 'I'\''m in /tmp/pps-lb-jpyfzmsr'
+I'm in /tmp/pps-lb-jpyfzmsr
++ echo 'I'\''m in /tmp/pps-lb-jpyfzmsr'
+I'm in /tmp/pps-lb-jpyfzmsr

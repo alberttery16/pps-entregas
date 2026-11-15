@@ -1,0 +1,9 @@
+$ bash tramo2.sh
+USER=
+What's your name?
+Hello, alumno!
+Your name isn't your username
+Valid email!
+Always executed
+Always executed
+Only executed if first command does NOT fail

@@ -1,0 +1,8 @@
+panic: runtime error: index out of range [10] with length 3
+
+goroutine 1 [running]:
+main.main()
+	/workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a16/experimentos/indice/main.go:5 +0x17
+exit status 2
+
+Código de salida: 1

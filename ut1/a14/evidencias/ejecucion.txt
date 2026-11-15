@@ -1,0 +1,243 @@
+$ python3 --version
+Python 3.12.14
+
+[código de salida: 0]
+
+$ python3 puertos.py 22 8080 50000 abc 70000
+Puerto 22: Sistema (bien conocido)
+Puerto 8080: Usuario (registrado)
+Puerto 50000: Dinámico o privado
+Error procesando 'abc': invalid literal for int() with base 10: 'abc'
+Error procesando '70000': Puerto fuera de rango válido (0-65535): 70000
+
+[código de salida: 0]
+
+$ python3 -m unittest -v
+test_clasificacion_clases (test_puertos.TestPuertos.test_clasificacion_clases) ... ok
+test_puerto_fuera_de_rango (test_puertos.TestPuertos.test_puerto_fuera_de_rango) ... ok
+test_puerto_privilegiado_fallo (test_puertos.TestPuertos.test_puerto_privilegiado_fallo) ... FAIL
+
+======================================================================
+FAIL: test_puerto_privilegiado_fallo (test_puertos.TestPuertos.test_puerto_privilegiado_fallo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/test_puertos.py", line 15, in test_puerto_privilegiado_fallo
+    self.assertTrue(es_privilegiado(8080))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=1)
+
+[código de salida: 1]
+
+$ python3 -m dis puertos.py
+  0           0 RESUME                   0
+
+  1           2 LOAD_CONST               0 (0)
+              4 LOAD_CONST               1 (None)
+              6 IMPORT_NAME              0 (sys)
+              8 STORE_NAME               0 (sys)
+
+  3          10 LOAD_CONST               2 (1023)
+             12 STORE_NAME               1 (LIMITE_SISTEMA)
+
+  4          14 LOAD_CONST               3 (49151)
+             16 STORE_NAME               2 (LIMITE_USUARIO)
+
+  5          18 LOAD_CONST               4 (65535)
+             20 STORE_NAME               3 (LIMITE_MAXIMO)
+
+  7          22 LOAD_CONST               5 ('numero')
+             24 LOAD_NAME                4 (int)
+             26 LOAD_CONST               6 ('return')
+             28 LOAD_NAME                5 (str)
+             30 BUILD_TUPLE              4
+             32 LOAD_CONST               7 (<code object clasificar_puerto at 0x7f04d61b0df0, file "puertos.py", line 7>)
+             34 MAKE_FUNCTION            4 (annotations)
+             36 STORE_NAME               6 (clasificar_puerto)
+
+ 17          38 LOAD_CONST               5 ('numero')
+             40 LOAD_NAME                4 (int)
+             42 LOAD_CONST               6 ('return')
+             44 LOAD_NAME                7 (bool)
+             46 BUILD_TUPLE              4
+             48 LOAD_CONST               8 (<code object es_privilegiado at 0x7f04d61a8990, file "puertos.py", line 17>)
+             50 MAKE_FUNCTION            4 (annotations)
+             52 STORE_NAME               8 (es_privilegiado)
+
+ 20          54 LOAD_CONST               9 (<code object main at 0x327eacf0, file "puertos.py", line 20>)
+             56 MAKE_FUNCTION            0
+             58 STORE_NAME               9 (main)
+
+ 32          60 LOAD_NAME               10 (__name__)
+             62 LOAD_CONST              10 ('__main__')
+             64 COMPARE_OP              40 (==)
+             68 POP_JUMP_IF_FALSE        8 (to 86)
+
+ 33          70 PUSH_NULL
+             72 LOAD_NAME                9 (main)
+             74 CALL                     0
+             82 POP_TOP
+             84 RETURN_CONST             1 (None)
+
+ 32     >>   86 RETURN_CONST             1 (None)
+
+Disassembly of <code object clasificar_puerto at 0x7f04d61b0df0, file "puertos.py", line 7>:
+  7           0 RESUME                   0
+
+  8           2 LOAD_FAST                0 (numero)
+              4 LOAD_CONST               1 (0)
+              6 COMPARE_OP               2 (<)
+             10 POP_JUMP_IF_TRUE         9 (to 30)
+             12 LOAD_FAST                0 (numero)
+             14 LOAD_GLOBAL              0 (LIMITE_MAXIMO)
+             24 COMPARE_OP              68 (>)
+             28 POP_JUMP_IF_FALSE       21 (to 72)
+
+  9     >>   30 LOAD_GLOBAL              3 (NULL + ValueError)
+             40 LOAD_CONST               2 ('Puerto fuera de rango válido (0-')
+             42 LOAD_GLOBAL              0 (LIMITE_MAXIMO)
+             52 FORMAT_VALUE             0
+             54 LOAD_CONST               3 ('): ')
+             56 LOAD_FAST                0 (numero)
+             58 FORMAT_VALUE             0
+             60 BUILD_STRING             4
+             62 CALL                     1
+             70 RAISE_VARARGS            1
+
+ 10     >>   72 LOAD_FAST                0 (numero)
+             74 LOAD_GLOBAL              4 (LIMITE_SISTEMA)
+             84 COMPARE_OP              26 (<=)
+             88 POP_JUMP_IF_FALSE        1 (to 92)
+
+ 11          90 RETURN_CONST             4 ('Sistema (bien conocido)')
+
+ 12     >>   92 LOAD_FAST                0 (numero)
+             94 LOAD_GLOBAL              6 (LIMITE_USUARIO)
+            104 COMPARE_OP              26 (<=)
+            108 POP_JUMP_IF_FALSE        1 (to 112)
+
+ 13         110 RETURN_CONST             5 ('Usuario (registrado)')
+
+ 15     >>  112 RETURN_CONST             6 ('Dinámico o privado')
+
+Disassembly of <code object es_privilegiado at 0x7f04d61a8990, file "puertos.py", line 17>:
+ 17           0 RESUME                   0
+
+ 18           2 LOAD_CONST               1 (0)
+              4 LOAD_FAST                0 (numero)
+              6 SWAP                     2
+              8 COPY                     2
+             10 COMPARE_OP              26 (<=)
+             14 COPY                     1
+             16 POP_JUMP_IF_FALSE        9 (to 36)
+             18 POP_TOP
+             20 LOAD_GLOBAL              0 (LIMITE_SISTEMA)
+             30 COMPARE_OP              26 (<=)
+             34 RETURN_VALUE
+        >>   36 SWAP                     2
+             38 POP_TOP
+             40 RETURN_VALUE
+
+Disassembly of <code object main at 0x327eacf0, file "puertos.py", line 20>:
+ 20           0 RESUME                   0
+
+ 21           2 LOAD_GLOBAL              1 (NULL + len)
+             12 LOAD_GLOBAL              2 (sys)
+             22 LOAD_ATTR                4 (argv)
+             42 CALL                     1
+             50 LOAD_CONST               1 (2)
+             52 COMPARE_OP               2 (<)
+             56 POP_JUMP_IF_FALSE       32 (to 122)
+
+ 22          58 LOAD_GLOBAL              7 (NULL + print)
+             68 LOAD_CONST               2 ('Uso: python3 puertos.py <puerto1> <puerto2> ...')
+             70 CALL                     1
+             78 POP_TOP
+
+ 23          80 LOAD_GLOBAL              3 (NULL + sys)
+             90 LOAD_ATTR                8 (exit)
+            110 LOAD_CONST               3 (1)
+            112 CALL                     1
+            120 POP_TOP
+
+ 24     >>  122 LOAD_GLOBAL              2 (sys)
+            132 LOAD_ATTR                4 (argv)
+            152 LOAD_CONST               3 (1)
+            154 LOAD_CONST               0 (None)
+            156 BINARY_SLICE
+            158 GET_ITER
+        >>  160 FOR_ITER                42 (to 248)
+            164 STORE_FAST               0 (arg)
+
+ 25         166 NOP
+
+ 26         168 LOAD_GLOBAL             11 (NULL + int)
+            178 LOAD_FAST                0 (arg)
+            180 CALL                     1
+            188 STORE_FAST               1 (puerto)
+
+ 27         190 LOAD_GLOBAL             13 (NULL + clasificar_puerto)
+            200 LOAD_FAST                1 (puerto)
+            202 CALL                     1
+            210 STORE_FAST               2 (clase)
+
+ 28         212 LOAD_GLOBAL              7 (NULL + print)
+            222 LOAD_CONST               4 ('Puerto ')
+            224 LOAD_FAST                1 (puerto)
+            226 FORMAT_VALUE             0
+            228 LOAD_CONST               5 (': ')
+            230 LOAD_FAST                2 (clase)
+            232 FORMAT_VALUE             0
+            234 BUILD_STRING             4
+            236 CALL                     1
+            244 POP_TOP
+            246 JUMP_BACKWARD           44 (to 160)
+
+ 24     >>  248 END_FOR
+            250 RETURN_CONST             0 (None)
+        >>  252 PUSH_EXC_INFO
+
+ 29         254 LOAD_GLOBAL             14 (ValueError)
+            264 CHECK_EXC_MATCH
+            266 POP_JUMP_IF_FALSE       27 (to 322)
+            268 STORE_FAST               3 (err)
+
+ 30         270 LOAD_GLOBAL              7 (NULL + print)
+            280 LOAD_CONST               6 ("Error procesando '")
+            282 LOAD_FAST                0 (arg)
+            284 FORMAT_VALUE             0
+            286 LOAD_CONST               7 ("': ")
+            288 LOAD_FAST                3 (err)
+            290 FORMAT_VALUE             0
+            292 BUILD_STRING             4
+            294 CALL                     1
+            302 POP_TOP
+            304 POP_EXCEPT
+            306 LOAD_CONST               0 (None)
+            308 STORE_FAST               3 (err)
+            310 DELETE_FAST              3 (err)
+            312 JUMP_BACKWARD           77 (to 160)
+        >>  314 LOAD_CONST               0 (None)
+            316 STORE_FAST               3 (err)
+            318 DELETE_FAST              3 (err)
+            320 RERAISE                  1
+
+ 29     >>  322 RERAISE                  0
+        >>  324 COPY                     3
+            326 POP_EXCEPT
+            328 RERAISE                  1
+ExceptionTable:
+  168 to 244 -> 252 [1]
+  252 to 268 -> 324 [2] lasti
+  270 to 302 -> 314 [2] lasti
+  314 to 322 -> 324 [2] lasti
+
+[código de salida: 0]
+
+$ wc -c puertos.py
+951 puertos.py
+
+[código de salida: 0]

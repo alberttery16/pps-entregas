@@ -1,0 +1,4 @@
+# command-line-arguments
+tipos/main.go:5:44: invalid operation: texto + 1 (mismatched types string and untyped int)
+
+Código de salida: 1

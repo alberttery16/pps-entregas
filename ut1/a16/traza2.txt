@@ -1,0 +1,19 @@
++ línea 3: set -uo pipefail
++ línea 27: ((  1 == 0  ))
++ línea 31: estado=0
++ línea 32: for texto in "$@"
+++ línea 33: clasificar_puerto 8080
+++ línea 6: local texto=8080 numero
+++ línea 7: [[ ! 8080 =~ ^[0-9]+$ ]]
+++ línea 12: [[ 4 -gt 1 ]]
+++ línea 12: [[ 8080 == 0* ]]
+++ línea 13: [[ 4 -gt 5 ]]
+++ línea 13: ((  10#8080 > 65535  ))
+++ línea 17: numero=8080
+++ línea 18: ((  numero <= 1023  ))
+++ línea 20: ((  numero <= 49151  ))
+++ línea 21: printf 'Usuario (registrado)\n'
++ línea 33: clase='Usuario (registrado)'
++ línea 34: printf 'Puerto %s: %s\n' 8080 'Usuario (registrado)'
+Puerto 8080: Usuario (registrado)
++ línea 40: exit 0

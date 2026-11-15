@@ -1,0 +1,7 @@
+INSEGURO: texto concatenado (2 órdenes echo)
+hola
+ORDEN_INYECTADA
+SEGURO: argumento separado (1 orden echo)
+hola; echo ORDEN_INYECTADA
+
+Código de salida: 0

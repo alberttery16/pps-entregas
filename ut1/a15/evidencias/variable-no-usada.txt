@@ -1,0 +1,8 @@
+$ go run sin_usar.go
+# command-line-arguments
+./sin_usar.go:2:15: declared and not used: sinUsar
+
+Estado: 1
+$ python3 sin_usar.py
+
+Estado: 0

@@ -1,0 +1,8 @@
+{
+  "version": "0.2.0",
+  "configurations": [{
+    "name": "Depurar puertos (Go)", "type": "go", "request": "launch",
+    "mode": "debug", "program": "${workspaceFolder}",
+    "args": ["22", "8080", "abc"]
+  }]
+}

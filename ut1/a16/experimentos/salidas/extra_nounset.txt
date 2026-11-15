@@ -1,0 +1,3 @@
+extra_nounset.sh: line 4: valores[10]: unbound variable
+
+Código de salida: 1

@@ -1,0 +1,48 @@
+$ bash --version | head -1
+GNU bash, version 5.2.37(1)-release (x86_64-pc-linux-gnu)
+
+Estado: 0
+
+$ python3 --version
+Python 3.12.14
+
+Estado: 0
+
+$ go version
+go version go1.23.2 linux/amd64
+
+Estado: 0
+
+$ shellcheck --version
+ShellCheck - shell script analysis tool
+version: 0.9.0
+license: GNU General Public License, version 3
+website: https://www.shellcheck.net
+
+Estado: 0
+
+$ shellcheck puertos.sh experimentos/ejecutar.sh
+
+Estado: 0
+
+$ bash -n LearnBash.sh
+
+Estado: 0
+
+$ python3 -m py_compile experimentos/tipos.py
+
+Estado: 0
+
+$ command -v bash python3 go sed echo
+/usr/bin/bash
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3
+/workspace/scratch/6eaef61f5d83/toolchain/go/bin/go
+/usr/bin/sed
+echo
+
+Estado: 0
+
+$ go list -m all
+puertos
+
+Estado: 0

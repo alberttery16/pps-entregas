@@ -1,0 +1,208 @@
+$ nasm -v
+NASM version 2.16.01
+
+[código de salida: 0]
+
+$ nasm -f elf64 hola_enunciado.asm -o /tmp/pps-enunciado.o && ld /tmp/pps-enunciado.o -o /tmp/pps-enunciado
+
+[código de salida: 0]
+
+$ nasm -f elf64 hola.asm -o /tmp/pps-hola.o && ld /tmp/pps-hola.o -o /tmp/pps-hola
+
+[código de salida: 0]
+
+$ /tmp/pps-enunciado
+Hello World!
+\0
+[código de salida: -11]
+
+$ /tmp/pps-hola
+Hello World!
+
+[código de salida: 0]
+
+$ /tmp/pps-hola | wc -c
+13
+
+[código de salida: 0]
+
+$ /tmp/pps-enunciado | od -c
+0000000   H   e   l   l   o       W   o   r   l   d   !  \n  \0
+0000016
+
+[código de salida: 0]
+
+$ readelf -h /tmp/pps-hola
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x401000
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          8464 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         3
+  Size of section headers:           64 (bytes)
+  Number of section headers:         6
+  Section header string table index: 5
+
+[código de salida: 0]
+
+$ readelf -S /tmp/pps-hola
+There are 6 section headers, starting at offset 0x2110:
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .text             PROGBITS         0000000000401000  00001000
+       0000000000000025  0000000000000000  AX       0     0     16
+  [ 2] .data             PROGBITS         0000000000402000  00002000
+       000000000000000d  0000000000000000  WA       0     0     4
+  [ 3] .symtab           SYMTAB           0000000000000000  00002010
+       00000000000000a8  0000000000000018           4     3     8
+  [ 4] .strtab           STRTAB           0000000000000000  000020b8
+       000000000000002a  0000000000000000           0     0     1
+  [ 5] .shstrtab         STRTAB           0000000000000000  000020e2
+       0000000000000027  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), l (large), p (processor specific)
+
+[código de salida: 0]
+
+$ nm /tmp/pps-hola
+000000000040200d D __bss_start
+000000000040200d D _edata
+0000000000402010 D _end
+0000000000401000 T _start
+0000000000402000 d message
+
+[código de salida: 0]
+
+$ objdump -d -M intel /tmp/pps-hola
+
+/tmp/pps-hola:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000401000 <_start>:
+  401000:	b8 01 00 00 00       	mov    eax,0x1
+  401005:	bf 01 00 00 00       	mov    edi,0x1
+  40100a:	48 be 00 20 40 00 00 	movabs rsi,0x402000
+  401011:	00 00 00 
+  401014:	ba 0d 00 00 00       	mov    edx,0xd
+  401019:	0f 05                	syscall
+  40101b:	b8 3c 00 00 00       	mov    eax,0x3c
+  401020:	48 31 ff             	xor    rdi,rdi
+  401023:	0f 05                	syscall
+
+[código de salida: 0]
+
+$ objdump -s -j .data /tmp/pps-hola
+
+/tmp/pps-hola:     file format elf64-x86-64
+
+Contents of section .data:
+ 402000 48656c6c 6f20576f 726c6421 0a        Hello World!.   
+
+[código de salida: 0]
+
+$ gcc hola.c -o /tmp/pps-hola-c
+
+[código de salida: 0]
+
+$ wc -l hola.asm hola.c hola.py
+ 15 hola.asm
+  6 hola.c
+  1 hola.py
+ 22 total
+
+[código de salida: 0]
+
+$ wc -c /tmp/pps-hola /tmp/pps-hola-c hola.py
+ 8848 /tmp/pps-hola
+15952 /tmp/pps-hola-c
+   22 hola.py
+24822 total
+
+[código de salida: 0]
+
+$ file /tmp/pps-hola /tmp/pps-hola-c hola.py
+/tmp/pps-hola:   ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, not stripped
+/tmp/pps-hola-c: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=906db553beba5cdd0586365978ac94b73ca41f96, for GNU/Linux 3.2.0, not stripped
+hola.py:         ASCII text
+
+[código de salida: 0]
+
+$ ldd /tmp/pps-hola
+	not a dynamic executable
+
+[código de salida: 1]
+
+$ ldd /tmp/pps-hola-c
+	linux-vdso.so.1 (0x00007f7af5505000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7af52e1000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f7af5507000)
+
+[código de salida: 0]
+
+$ strace -e trace=write /tmp/pps-hola
+strace: test_ptrace_get_syscall_info: PTRACE_TRACEME: Operation not permitted
+strace: ptrace(PTRACE_TRACEME, ...): Operation not permitted
+strace: PTRACE_SETOPTIONS: Operation not permitted
+strace: cleanup: waitpid(-1, __WALL): No child processes
+
+[código de salida: 1]
+
+$ strace -e trace=write /tmp/pps-hola-c
+strace: test_ptrace_get_syscall_info: PTRACE_TRACEME: Operation not permitted
+strace: ptrace(PTRACE_TRACEME, ...): Operation not permitted
+strace: PTRACE_SETOPTIONS: Operation not permitted
+strace: cleanup: waitpid(-1, __WALL): No child processes
+
+[código de salida: 1]
+
+$ strace -e trace=write python3 hola.py
+strace: test_ptrace_get_syscall_info: PTRACE_TRACEME: Operation not permitted
+strace: ptrace(PTRACE_TRACEME, ...): Operation not permitted
+strace: PTRACE_SETOPTIONS: Operation not permitted
+strace: cleanup: waitpid(-1, __WALL): No child processes
+
+[código de salida: 1]
+
+$ strace -o /tmp/pps-asm.strace /tmp/pps-hola >/dev/null && grep -c '^[a-zA-Z_][a-zA-Z0-9_]*(' /tmp/pps-asm.strace
+strace: test_ptrace_get_syscall_info: PTRACE_TRACEME: Operation not permitted
+strace: ptrace(PTRACE_TRACEME, ...): Operation not permitted
+strace: PTRACE_SETOPTIONS: Operation not permitted
+strace: cleanup: waitpid(-1, __WALL): No child processes
+
+[código de salida: 1]
+
+$ strace -o /tmp/pps-c.strace /tmp/pps-hola-c >/dev/null && grep -c '^[a-zA-Z_][a-zA-Z0-9_]*(' /tmp/pps-c.strace
+strace: test_ptrace_get_syscall_info: PTRACE_TRACEME: Operation not permitted
+strace: ptrace(PTRACE_TRACEME, ...): Operation not permitted
+strace: PTRACE_SETOPTIONS: Operation not permitted
+strace: cleanup: waitpid(-1, __WALL): No child processes
+
+[código de salida: 1]
+
+$ strace -o /tmp/pps-python.strace python3 hola.py >/dev/null && grep -c '^[a-zA-Z_][a-zA-Z0-9_]*(' /tmp/pps-python.strace
+strace: test_ptrace_get_syscall_info: PTRACE_TRACEME: Operation not permitted
+strace: ptrace(PTRACE_TRACEME, ...): Operation not permitted
+strace: PTRACE_SETOPTIONS: Operation not permitted
+strace: cleanup: waitpid(-1, __WALL): No child processes
+
+[código de salida: 1]

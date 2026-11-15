@@ -31,6 +31,6 @@ func TestPuertoFueraDeRango(t *testing.T) {
 
 func TestPuertoPrivilegiadoFallo(t *testing.T) {
 	if !EsPrivilegiado(8080) {
-		t.Errorf("Fallo intencionado en línea 36: se esperaba true para puerto 8080 y se obtuvo false")
+		t.Errorf("Fallo intencionado: se esperaba true para puerto 8080 y se obtuvo false")
 	}
 }

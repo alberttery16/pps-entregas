@@ -1,0 +1,31 @@
+$ bash --version | head -1
+GNU bash, version 5.2.37(1)-release (x86_64-pc-linux-gnu)
+
+[código de salida: 0]
+
+$ ./puertos.sh 22 8080 50000 abc 70000 '*'
+Puerto 22: Sistema (bien conocido)
+Puerto 8080: Usuario (registrado)
+Puerto 50000: Dinámico o privado
+Error: abc no es un número entero válido
+Error: 70000 está fuera del rango 0-65535
+Error: * no es un número entero válido
+
+[código de salida: 1]
+
+$ bash -n puertos.sh
+
+[código de salida: 0]
+
+$ ./puertos.sh 0 1023 1024 49151 49152 65535 65536 00080 999999999999999999999999999999
+Puerto 0: Sistema (bien conocido)
+Puerto 1023: Sistema (bien conocido)
+Puerto 1024: Usuario (registrado)
+Puerto 49151: Usuario (registrado)
+Puerto 49152: Dinámico o privado
+Puerto 65535: Dinámico o privado
+Error: 65536 está fuera del rango 0-65535
+Puerto 00080: Sistema (bien conocido)
+Error: 999999999999999999999999999999 está fuera del rango 0-65535
+
+[código de salida: 1]

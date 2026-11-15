@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a16/experimentos/indice.py", line 3, in <module>
+    print(valores[indice])
+          ~~~~~~~^^^^^^^^
+IndexError: list index out of range
+
+Código de salida: 1

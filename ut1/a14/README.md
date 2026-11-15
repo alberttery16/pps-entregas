@@ -1,6 +1,6 @@
 # ACT_UT1_2 · Python (a14)
 
-Registro real de revisión: [evidencias/ejecucion.txt](evidencias/ejecucion.txt), con Python 3.12.14. Falta incorporar una captura propia de VS Code; los archivos del repositorio no la incluían.
+Evidencias de ejecución: [evidencias/ejecucion.txt](evidencias/ejecucion.txt), con Python 3.12.14. Falta incorporar una captura propia de VS Code; los archivos del repositorio no la incluían.
 
 ## Parte 1 · Lectura: cómo se ejecutan Python y Java
 
@@ -39,7 +39,7 @@ Error procesando 'abc': invalid literal for int() with base 10: 'abc'
 Error procesando '70000': Puerto fuera de rango válido (0-65535): 70000
 ```
 
-Los errores se capturan y el bucle continúa. La versión existente termina con estado 0 incluso si algunos argumentos eran incorrectos: se documenta ese comportamiento sin cambiar la práctica ya realizada.
+Los errores se capturan y el bucle continúa. El programa termina con estado 0 tras procesar los argumentos, incluso si alguno era incorrecto. Sin argumentos muestra la ayuda y termina con estado 1.
 
 ## Parte 3 · Tres pruebas en Python, una falla
 
@@ -71,7 +71,7 @@ Extracto con la ruta abreviada; el registro incluye la salida completa. Falla la
 
 ### Cómo se depura
 
-Abrir **esta carpeta a14** en VS Code e instalar las extensiones Python y Python Debugger. La configuración existente [.vscode/launch.json](.vscode/launch.json) utiliza `debugpy` y los argumentos `22`, `8080`, `abc`.
+Abrir **esta carpeta a14** en VS Code e instalar las extensiones Python y Python Debugger. La configuración [.vscode/launch.json](.vscode/launch.json) utiliza `debugpy` y los argumentos `22`, `8080`, `abc`.
 
 1. Poner un breakpoint en `puertos.py:10`, `if numero <= LIMITE_SISTEMA:`.
 2. Iniciar con F5. En **Variables**, inspeccionar el parámetro local `numero`: primero se espera 22 y después 8080.
@@ -80,3 +80,22 @@ Abrir **esta carpeta a14** en VS Code e instalar las extensiones Python y Python
 5. Avanzar hasta el `except` y comprobar el mensaje de error.
 
 **Pendiente de evidencia:** guardar `capturas/debug-python.png` y enlazarla aquí con el pie «Figura 1. Depuración del clasificador Python: valor de numero y pila de llamadas». Los valores anteriores son los esperados según el código, no valores observados en una captura aún inexistente.
+
+### Comprobación adicional con el depurador de Python
+
+Se ha ejecutado una sesión real de `pdb` con los argumentos `22 8080 abc`, un breakpoint en la línea 10 y consultas de variables y pila. Registro: [evidencias/depuracion-pdb.txt](evidencias/depuracion-pdb.txt).
+
+| Parada observada | `numero` | Pila del programa |
+|---|---:|---|
+| Primera | 22 | módulo → main → clasificar_puerto |
+| Segunda | 8080 | módulo → main → clasificar_puerto |
+
+Después de continuar desde la segunda parada, se imprimió la clase de 8080 y se gestionó `abc` sin una tercera parada en el clasificador. Esta comprobación aporta una traza real, pero no sustituye la captura de VS Code que pide la rúbrica.
+
+### Archivos de entrega
+
+- [puertos.py](puertos.py): programa.
+- [test_puertos.py](test_puertos.py): tres pruebas, una deliberadamente fallida.
+- [.vscode/launch.json](.vscode/launch.json): argumentos del depurador.
+- [evidencias/ejecucion.txt](evidencias/ejecucion.txt): salida, pruebas y bytecode.
+- [capturas/README.md](capturas/README.md): comprobaciones de la captura pendiente.

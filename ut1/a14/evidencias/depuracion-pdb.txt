@@ -1,0 +1,47 @@
+$ python3 -m pdb puertos.py 22 8080 abc
+Órdenes introducidas:
+break 10
+continue
+p numero
+where
+continue
+p numero
+where
+continue
+quit
+
+Salida real:
+> /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(1)<module>()
+-> import sys
+(Pdb) Breakpoint 1 at /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py:10
+(Pdb) > /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(10)clasificar_puerto()
+-> if numero <= LIMITE_SISTEMA:
+(Pdb) 22
+(Pdb)   /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/bdb.py(627)run()
+-> exec(cmd, globals, locals)
+  <string>(1)<module>()
+  /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(33)<module>()
+-> main()
+  /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(27)main()
+-> clase = clasificar_puerto(puerto)
+> /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(10)clasificar_puerto()
+-> if numero <= LIMITE_SISTEMA:
+(Pdb) Puerto 22: Sistema (bien conocido)
+> /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(10)clasificar_puerto()
+-> if numero <= LIMITE_SISTEMA:
+(Pdb) 8080
+(Pdb)   /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/bdb.py(627)run()
+-> exec(cmd, globals, locals)
+  <string>(1)<module>()
+  /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(33)<module>()
+-> main()
+  /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(27)main()
+-> clase = clasificar_puerto(puerto)
+> /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(10)clasificar_puerto()
+-> if numero <= LIMITE_SISTEMA:
+(Pdb) Puerto 8080: Usuario (registrado)
+Error procesando 'abc': invalid literal for int() with base 10: 'abc'
+The program finished and will be restarted
+> /workspace/scratch/6eaef61f5d83/pps-entregas/ut1/a14/puertos.py(1)<module>()
+-> import sys
+(Pdb) 

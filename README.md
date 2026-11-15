@@ -5,11 +5,13 @@ Repositorio de Albert Grigore. Documentación organizada según los enunciados r
 | Actividad | Carpetas | Estado comprobado en la revisión |
 |---|---|---|
 | 1 · Pruebas de aplicaciones | [a12](ut1/a12/README.md), [a13](ut1/a13/README.md) | Código existente correcto en sus correcciones; README y mediciones añadidos. PDF entregado aportado y revisado; contiene capturas. Quedan omisiones en la parte del simulador web y la pila inicial |
-| 2 · Ejecución de aplicaciones | [a14 Python](ut1/a14/README.md), [a15 Go](ut1/a15/README.md) | Programas y pruebas verificados; dos pruebas correctas y un fallo deliberado por lenguaje. Faltan capturas propias de VS Code |
+| 2 · Ejecución de aplicaciones | [a14 Python](ut1/a14/README.md), [a15 Go](ut1/a15/README.md) | Código y README revisados; pruebas verificadas, traza real adicional de pdb y configuraciones listas. Faltan las capturas exigidas de VS Code |
 | 3 · Bash programming | [a16](ut1/a16/README.md) | Script propio, dos trazas, tutorial resuelto, análisis seguro de LearnBash, doce experimentos y tabla. Lecturas contrastadas; falta contrastar el script con «Bash por dentro» |
 | 4 · Solidity + Git | [a17](ut1/a17/README.md) | Análisis y borrador de memoria preparados; pendientes los cursos, sus capturas y el PDF final |
 
 ## Cómo trabajar
+
+Para abrir las tres carpetas juntas en VS Code, usar [actividades-2-3.code-workspace](ut1/actividades-2-3.code-workspace). Cada carpeta conserva su README y su configuración de depuración.
 
 Usar Linux/Ubuntu para las pruebas de terminal. Desde cada carpeta ejecutar las órdenes que aparecen en su README. Python y Go contienen una prueba que **debe fallar** según el enunciado; no es un defecto pendiente de corregir. No ejecutar LearnBash.sh completo.
 
@@ -20,7 +22,7 @@ Las salidas de `evidencias/` se han obtenido durante la revisión en un entorno 
 - [x] Recibido el PDF ya entregado de la actividad 1, con capturas de terminal y GDB.
 - [ ] Incorporar las capturas de depuración de la actividad 2.
 - [ ] Si se permite corregir la actividad 1: completar el simulador web, la pila inicial y la instrucción posterior al xor.
-- [ ] Ejecutar GDB y strace en Ubuntu: el entorno de revisión deniega ptrace; no hay mediciones válidas de syscalls ni captura de SIGSEGV en GDB.
+- [ ] Para ampliar las evidencias de la actividad 1, usar las sesiones de Ubuntu del alumno: el entorno de revisión deniega ptrace. El PDF aportado ya contiene una captura de SIGSEGV en GDB; su recuento con strace debe distinguir líneas de salida y llamadas reales.
 - [x] Contrastadas las dos lecturas del aula de Bash; LearnBash reenviado coincide con el original.
 - [ ] Aportar el script «Bash por dentro» para contrastarlo con la versión propia de a16.
 - [ ] Completar CryptoZombies y Learn Git Branching y añadir las ocho evidencias de logro de la actividad 4.

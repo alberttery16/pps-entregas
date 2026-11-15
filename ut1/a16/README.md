@@ -1,8 +1,10 @@
 # ACT_UT1_3 · Bash programming
 
-## Estado y reproducción
+## Ejecución y evidencias
 
-Código y resultados preparados y ejecutados en Linux x86-64 durante la revisión. Las trazas corresponden a los archivos de esta carpeta. **Las dos lecturas del aula ya se han contrastado con los PDF adjuntos. Falta únicamente contrastar la versión de `puertos.sh` con el apartado «Bash por dentro» de los apuntes**, que no se ha adjuntado. Se ha creado una versión propia del clasificador y se explica expresamente esta diferencia; no se presenta como transcripción de los apuntes.
+Esta carpeta contiene el clasificador Bash, las dos trazas, el análisis de LearnBash y los cuatro experimentos en los tres lenguajes, con sus salidas reales en Linux x86-64. Las dos lecturas se han contrastado con los PDF del aula.
+
+**Alcance del script:** `puertos.sh` es una implementación propia. El enunciado solicita el del apartado «Bash por dentro» y ese apartado no se ha aportado; por tanto, queda sin verificar la coincidencia exacta con el código del profesor. Las trazas y explicaciones corresponden al archivo incluido aquí.
 
 ```bash
 chmod +x puertos.sh experimentos/ejecutar.sh
@@ -77,7 +79,7 @@ Fuente: [krother/bash_tutorial](https://github.com/krother/bash_tutorial), revis
 | 3. Copy and remove files | `mkdir exercise_3/solution`, `cp exercise_3/part1/* exercise_3/part2/* exercise_3/solution/`, `rm exercise_3/data/*Y*` | **DYTE**: los signos + de `___+______+_` señalan D/Y en `UIMDELGKBCYF`; quedan los archivos con T y E |
 | 4. Process text data | `diff exercise_4/ai.txt exercise_4/artificial_intelligence.txt`, `LC_ALL=en_US.utf8 sort exercise_4/elephant.txt`, `grep fire exercise_4/datascience.txt` | **SPA**: diferencia s en stupid/tupid; última palabra parameters, inicial p; línea «a fire station», inicial a |
 | 5. Unzip files | `unzip wrapped.zip`, `tar -xf wrapped.tar`, `gunzip solution/solution.txt.gz` | **TA**: el texto descomprimido indica ambas letras |
-| 6. Command-line tools | `chmod u+x exercise_6/permissions.sh`, `./exercise_6/permissions.sh`, `df --version`, `export GIVEME=SOLUTION`, `echo "$GIVEME" | wc -c`, `top -b -n 1` | **GONICUS**: script G/O; Torbjörn termina en n; 9 caracteres contando el salto de línea = I; opción `ping -c` = C; segunda cabecera USER = US |
+| 6. Command-line tools | `chmod u+x exercise_6/permissions.sh`, `./exercise_6/permissions.sh`, `df --version`, `export GIVEME=SOLUTION`, `echo "$GIVEME" \| wc -c`, `top -b -n 1` | **GONICUS**: script G/O; Torbjörn termina en n; 9 caracteres contando el salto de línea = I; opción `ping -c` = C; segunda cabecera USER = US |
 
 La palabra de 22 caracteres es **APTENODYTESPATAGONICUS**. Es el nombre científico del pingüino rey, normalmente escrito *Aptenodytes patagonicus*.
 
@@ -139,7 +141,7 @@ Aporte propio: los errores de las líneas 19 y 24 son de ejecución, no de sinta
 
 ## Parte 6 · Cuatro experimentos en Go, Python y Bash
 
-Ejecución: `bash experimentos/ejecutar.sh`. Cada caso tiene archivo independiente; los Go se ejecutan con `go run caso/main.go` para que el ejemplo que no compila no bloquee a los demás. Se almacenan stdout, stderr y estado en `experimentos/salidas/`.
+Ejecución: `bash experimentos/ejecutar.sh`. Cada caso tiene archivo independiente; los Go se ejecutan con `go run caso/main.go` para que el ejemplo que no compila no bloquee a los demás. Se almacenan stdout, stderr y estado en `experimentos/salidas/`. El lanzador comprueba primero las herramientas y verifica los estados esperados: devuelve 0 si todos coinciden, aunque varios ejemplos fallen deliberadamente; devuelve 1 si detecta un resultado inesperado.
 
 En inyección se cuentan las órdenes `echo` que procesan la entrada: **dos** en la variante insegura y **una** en la segura. No se cuentan el proceso envoltorio ni los mensajes que rotulan cada variante. La aparición literal de `ORDEN_INYECTADA` en la variante segura no prueba una inyección: forma parte del único argumento.
 
@@ -480,3 +482,16 @@ La prueba de int64 demuestra que todavía hacen falta límites numéricos, y la 
 Lo ejecutaría en un contenedor sin root, con capacidades reducidas, límites de CPU/memoria y filesystem de solo lectura cuando sea posible.
 Separaría los secretos y restringiría las conexiones de salida; el contenedor comparte kernel y no sustituye la validación.
 Si procesa contenido especialmente hostil o necesita mayor separación, lo alojaría además en una máquina virtual.
+
+## Índice de archivos
+
+| Archivo o carpeta | Contenido |
+|---|---|
+| [puertos.sh](puertos.sh) | Clasificador y validación de entradas |
+| [traza1.txt](traza1.txt) y [traza2.txt](traza2.txt) | Depuración con xtrace y números de línea |
+| [LearnBash.sh](LearnBash.sh) | Original aportado, sin modificaciones |
+| [evidencias](evidencias) | Tutorial, tramos permitidos y comprobaciones |
+| [experimentos](experimentos) | Doce ejemplos, uno adicional y salidas reales |
+| [experimentos/ejecutar.sh](experimentos/ejecutar.sh) | Reproducción y verificación de estados esperados |
+
+La actividad 3 se entrega mediante esta carpeta y su README; no requiere PDF.

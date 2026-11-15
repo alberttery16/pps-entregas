@@ -2,7 +2,7 @@
 
 Revisión de los programas existentes. Las mediciones de esta carpeta se han ejecutado en un entorno Linux x86-64 de revisión, no en el ordenador del alumno. Registro completo: [evidencias/ejecucion.txt](evidencias/ejecucion.txt). Los ejecutables originales se conservan; los de revisión se construyeron en `/tmp` para no sustituirlos.
 
-**Pendiente de entrega:** incorporar las capturas propias, completar las mediciones de `strace` y preparar el PDF con la plantilla del aula. Este README no sustituye ese PDF.
+**Actualización:** el alumno ha aportado el PDF ya entregado `ACT_UT1_1_Pruebas_de_aplicaciones.pdf`, que incluye capturas de terminal, comparación con strace y GDB. Este README mantiene por separado las mediciones del entorno de revisión. El PDF no incluye el desarrollo/captura del simulador web ni la pila inicial y deja incompleta la explicación de la instrucción posterior al xor. Además, `strace | wc -l` cuenta líneas de salida, no exclusivamente llamadas al sistema; no deben identificarse ambas medidas. El programa corregido tiene ocho instrucciones, no siete como indica el PDF.
 
 ## Parte 1 · Lectura 3.1: arquitectura x86-64
 
@@ -121,4 +121,4 @@ La explicación y los comandos están en [a13/README.md](../a13/README.md).
 
 ## Conclusión
 
-El texto visible no basta para dar un programa por correcto: había un byte sobrante y un fallo de terminación. La corrección se ha comprobado reconstruyendo los binarios, inspeccionando sus secciones y verificando la salida y el estado final. Faltan las pruebas de depuración y sus capturas para cerrar la entrega.
+El texto visible no basta para dar un programa por correcto: había un byte sobrante y un fallo de terminación. La corrección se ha comprobado reconstruyendo los binarios, inspeccionando sus secciones y verificando la salida y el estado final. El PDF aportado ya contiene evidencias de GDB; faltan las partes específicas señaladas en la actualización inicial.

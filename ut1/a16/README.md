@@ -2,7 +2,7 @@
 
 ## Estado y reproducción
 
-Código y resultados preparados y ejecutados en Linux x86-64 durante la revisión. Las trazas corresponden a los archivos de esta carpeta. **Falta contrastar las dos lecturas y la versión de `puertos.sh` con los apuntes del aula**, que no se han adjuntado. Se ha creado una versión propia del clasificador y se explica expresamente esta diferencia; no se presenta como transcripción de los apuntes.
+Código y resultados preparados y ejecutados en Linux x86-64 durante la revisión. Las trazas corresponden a los archivos de esta carpeta. **Las dos lecturas del aula ya se han contrastado con los PDF adjuntos. Falta únicamente contrastar la versión de `puertos.sh` con el apartado «Bash por dentro» de los apuntes**, que no se ha adjuntado. Se ha creado una versión propia del clasificador y se explica expresamente esta diferencia; no se presenta como transcripción de los apuntes.
 
 ```bash
 chmod +x puertos.sh experimentos/ejecutar.sh
@@ -25,7 +25,7 @@ Al terminar conserva el estado de salida en `$?`, donde cero indica éxito por c
 
 Ejemplo propio: `printf '%s\n' "$HOME"` expande la variable pero conserva la ruta como un argumento; `printf` es una orden interna de Bash. En cambio, `/bin/ls` ejecuta un programa externo. Hay optimizaciones y contextos donde no se realiza exactamente un `fork` por orden.
 
-Fuente de apoyo: [manual de Bash, funcionamiento de la shell](https://www.gnu.org/software/bash/manual/html_node/Shell-Operation.html). El PDF `How Does the Shell Command ls Work Internally.pdf` queda pendiente de contrastar.
+Fuente de apoyo: [manual de Bash, funcionamiento de la shell](https://www.gnu.org/software/bash/manual/html_node/Shell-Operation.html). Lectura contrastada: Brennan D Baraban, `How Does the Shell Command ls Work Internally.pdf`, aportada por el alumno. Describe la lectura de la orden, su separación, la resolución de nombres, PATH y la secuencia fork/exec/wait. Matiz técnico: execve no devuelve cero si tiene éxito, sino que sustituye la imagen del proceso; el estado final de la orden es otra cosa.
 
 ## Parte 2 · Lectura 3.2: introducción a los scripts de Bash
 
@@ -35,7 +35,7 @@ Los bucles repiten operaciones sobre varios datos y evitan copiar órdenes casi 
 También se pueden comprobar errores y guardar resultados para reproducir una prueba.
 En esta actividad, `puertos.sh` procesa todos los puertos recibidos, informa de los incorrectos y continúa con los demás.
 
-Ejemplo propio: `./puertos.sh 22 8080 50000` aplica la misma función a tres argumentos. El shebang selecciona Bash y `chmod +x` permite ejecutarlo directamente. El PDF `Introduction to Bash Scripting.pdf` queda pendiente de contrastar.
+Ejemplo propio: `./puertos.sh 22 8080 50000` aplica la misma función a tres argumentos. El shebang selecciona Bash y `chmod +x` permite ejecutarlo directamente. Lectura contrastada: Saquib Khan, `Introduction to Bash Scripting.pdf`, aportada por el alumno. Presenta automatización, variables, condiciones, bucles, permisos y códigos de salida. En su ejemplo del bucle for aparece `$1`; para imprimir la variable iterada `i` debe usarse `$i`.
 
 ## Parte 3 · Script de Bash y su depuración
 

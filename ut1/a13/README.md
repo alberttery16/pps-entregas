@@ -4,7 +4,9 @@
 
 Se conservan los dos programas: el original y el corregido. Esta carpeta desarrolla la parte 6 de la actividad 1; las partes 1 a 5 están en [a12](../a12/README.md).
 
-**Estado:** análisis estático preparado. La ejecución con GDB está pendiente porque el entorno de revisión deniega `ptrace`, como muestra [gdb-entorno.txt](gdb-entorno.txt). Los valores siguientes son los deducidos del código y de la salida observada en a12; no son una captura de una sesión GDB completada.
+**Actualización:** el PDF entregado y aportado posteriormente contiene una captura de GDB con SIGSEGV en el original y salida normal/código 0 del corregido. No muestra el simulador web ni los valores iniciales de la pila.
+
+**Estado de las pruebas locales de revisión:** análisis estático preparado. La ejecución con GDB está pendiente porque el entorno de revisión deniega `ptrace`, como muestra [gdb-entorno.txt](gdb-entorno.txt). Los valores siguientes son los deducidos del código y de la salida observada en a12; no son una captura de una sesión GDB completada.
 
 ## Parte 6 · 3.3.3 Análisis con depuradores: gdb y depurador web
 
@@ -77,7 +79,7 @@ Son valores calculados que hay que contrastar en el simulador. `jnz` examina la 
 
 ### Capturas pendientes
 
-Guardar una imagen real de GDB parado en SIGSEGV y otra del simulador al terminar. Ambas deben mostrar usuario o fecha. Pies propuestos:
+La imagen real de GDB ya aparece en el PDF aportado. Falta la imagen del simulador al terminar. Ambas deben mostrar usuario o fecha. Pies propuestos:
 
 - «Figura 1. Programa original detenido en SIGSEGV después de no invocar la salida del proceso».
 - «Figura 2. Bucle del simulador finalizado con EAX=15, ECX=0 y ZF=1».

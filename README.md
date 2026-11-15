@@ -4,9 +4,9 @@ Repositorio de Albert Grigore. Documentación organizada según los enunciados r
 
 | Actividad | Carpetas | Estado comprobado en la revisión |
 |---|---|---|
-| 1 · Pruebas de aplicaciones | [a12](ut1/a12/README.md), [a13](ut1/a13/README.md) | Código existente correcto en sus correcciones; README y mediciones añadidos. Faltan evidencias de depuración/strace y PDF o aportar la entrega ya realizada |
+| 1 · Pruebas de aplicaciones | [a12](ut1/a12/README.md), [a13](ut1/a13/README.md) | Código existente correcto en sus correcciones; README y mediciones añadidos. PDF entregado aportado y revisado; contiene capturas. Quedan omisiones en la parte del simulador web y la pila inicial |
 | 2 · Ejecución de aplicaciones | [a14 Python](ut1/a14/README.md), [a15 Go](ut1/a15/README.md) | Programas y pruebas verificados; dos pruebas correctas y un fallo deliberado por lenguaje. Faltan capturas propias de VS Code |
-| 3 · Bash programming | [a16](ut1/a16/README.md) | Script propio, dos trazas, tutorial resuelto, análisis seguro de LearnBash, doce experimentos y tabla. Falta contrastar lecturas y script con los apuntes del aula |
+| 3 · Bash programming | [a16](ut1/a16/README.md) | Script propio, dos trazas, tutorial resuelto, análisis seguro de LearnBash, doce experimentos y tabla. Lecturas contrastadas; falta contrastar el script con «Bash por dentro» |
 | 4 · Solidity + Git | [a17](ut1/a17/README.md) | Análisis y borrador de memoria preparados; pendientes los cursos, sus capturas y el PDF final |
 
 ## Cómo trabajar
@@ -17,9 +17,12 @@ Las salidas de `evidencias/` se han obtenido durante la revisión en un entorno 
 
 ## Pendientes para cerrar las entregas
 
-- [ ] Incorporar las capturas reales de las actividades 1 y 2, si ya se realizaron, y el PDF de la actividad 1.
+- [x] Recibido el PDF ya entregado de la actividad 1, con capturas de terminal y GDB.
+- [ ] Incorporar las capturas de depuración de la actividad 2.
+- [ ] Si se permite corregir la actividad 1: completar el simulador web, la pila inicial y la instrucción posterior al xor.
 - [ ] Ejecutar GDB y strace en Ubuntu: el entorno de revisión deniega ptrace; no hay mediciones válidas de syscalls ni captura de SIGSEGV en GDB.
-- [ ] Aportar/contrastar las lecturas del aula y el script «Bash por dentro» para la actividad 3.
+- [x] Contrastadas las dos lecturas del aula de Bash; LearnBash reenviado coincide con el original.
+- [ ] Aportar el script «Bash por dentro» para contrastarlo con la versión propia de a16.
 - [ ] Completar CryptoZombies y Learn Git Branching y añadir las ocho evidencias de logro de la actividad 4.
 - [ ] Completar NIA, portada y normativa y generar el PDF final de la actividad 4.
 - [ ] Comprobar acceso del profesor `jcalahorratovar` y visibilidad privada, como exigen los enunciados de las actividades 1 y 2. La consulta inicial del repositorio indicó visibilidad pública; no se ha cambiado la configuración de acceso.
